@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUGADORES</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="icon" href="img/images.jpeg">
+    <style>
+                #contenedor{
+            width: 850px;
+            height: 410px;
+            border: 2px solid black;
+            box-shadow: 2px 2px 4px black;
+            border-radius: 20px;
+        }
+      </style>
+</head>
+<body class="text-center" onload="cargarEquiposSelect()">
+    <nav class="navbar navbar-expand-lg bg-warning">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Liga de Futbol</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link" href="equipo.html">Equipo</a>
+              <a class="nav-link" href="jugadores.html">Jugadores</a>
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </div>
+          </div>
+        </div>
+      </nav><br><br>
+
+      <div class="container-fluid" id="contenedor">
+        <label for="">Nombre del Jugador</label>
+        <input type="text" id="nombre" class="form-control w-75 m-auto">
+        <label for="">Edad</label>
+        <input type="number" id="edad" class="form-control w-75 m-auto">
+        <label for="">Pais</label>
+        <input type="text" id="pais" class="form-control w-75 m-auto">
+        <label for="">Foto</label>
+        <input type="file" id="foto" class="form-control w-75 m-auto">
+        <label for="">Equipo</label>
+        <select id="equipoJugador" class="form-control w-75 m-auto"></select><br>
+        <button class="btn btn-warning" onclick="registrarJ()">Agregar <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipSAddOne0"><g fill="none" stroke-linejoin="round" stroke-width="4"><path fill="#fff" stroke="#fff" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"/><path stroke="#000" stroke-linecap="round" d="M24 16v16m-8-8h16"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSAddOne0)"/></svg></button>
+      </div><br>
+
+      <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Nombre del Jugador</th>
+                <th>Edad</th>
+                <th>Pais</th>
+                <th>Equipo</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="jugador">
+
+        </tbody>
+      </table>
+
+      <div class="modal fade" id="editarE" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Equipo</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="">Nombre del Jugador</label>
+                <input type="text" id="enombre" class="form-control w-75 m-auto">
+                <label for="">Edad</label>
+                <input type="number" id="eedad" class="form-control w-75 m-auto">
+                <label for="">Pais</label>
+                <input type="text" id="epais" class="form-control w-75 m-auto">
+                <label for="">Foto</label>
+                <input type="file" id="efoto" class="form-control w-75 m-auto">
+                <label for="">Equipo</label>
+                <select id="eequipoJugador" class="form-control w-75 m-auto"></select><br>
+                <span id="file-name"></span>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="id" name="id">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><g fill="none"><path fill="url(#fluentColorCalendarCancel160)" d="M14 11.5v-6l-6-1l-6 1v6A2.5 2.5 0 0 0 4.5 14h7a2.5 2.5 0 0 0 2.5-2.5"/><path fill="url(#fluentColorCalendarCancel161)" d="M14 11.5v-6l-6-1l-6 1v6A2.5 2.5 0 0 0 4.5 14h7a2.5 2.5 0 0 0 2.5-2.5"/><path fill="url(#fluentColorCalendarCancel165)" fill-opacity="0.3" d="M14 11.5v-6l-6-1l-6 1v6A2.5 2.5 0 0 0 4.5 14h7a2.5 2.5 0 0 0 2.5-2.5"/><path fill="url(#fluentColorCalendarCancel162)" d="M14 4.5A2.5 2.5 0 0 0 11.5 2h-7A2.5 2.5 0 0 0 2 4.5V6h12z"/><path fill="url(#fluentColorCalendarCancel163)" d="M16 11.5a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0"/><path fill="url(#fluentColorCalendarCancel164)" fill-rule="evenodd" d="M9.646 9.646a.5.5 0 0 1 .708 0l1.146 1.147l1.146-1.147a.5.5 0 0 1 .708.708L12.207 11.5l1.147 1.146a.5.5 0 0 1-.708.708L11.5 12.207l-1.146 1.147a.5.5 0 0 1-.708-.708l1.147-1.146l-1.147-1.146a.5.5 0 0 1 0-.708" clip-rule="evenodd"/><defs><linearGradient id="fluentColorCalendarCancel160" x1="6.286" x2="9.327" y1="4.5" y2="13.987" gradientUnits="userSpaceOnUse"><stop stop-color="#b3e0ff"/><stop offset="1" stop-color="#8cd0ff"/></linearGradient><linearGradient id="fluentColorCalendarCancel161" x1="9.286" x2="11.025" y1="8.386" y2="16.154" gradientUnits="userSpaceOnUse"><stop stop-color="#dcf8ff" stop-opacity="0"/><stop offset="1" stop-color="#ff6ce8" stop-opacity="0.7"/></linearGradient><linearGradient id="fluentColorCalendarCancel162" x1="2.482" x2="4.026" y1="2" y2="8.725" gradientUnits="userSpaceOnUse"><stop stop-color="#0094f0"/><stop offset="1" stop-color="#2764e7"/></linearGradient><linearGradient id="fluentColorCalendarCancel163" x1="8.406" x2="14.313" y1="7.563" y2="16.281" gradientUnits="userSpaceOnUse"><stop stop-color="#f83f54"/><stop offset="1" stop-color="#ca2134"/></linearGradient><linearGradient id="fluentColorCalendarCancel164" x1="9.977" x2="11.771" y1="11.652" y2="13.518" gradientUnits="userSpaceOnUse"><stop stop-color="#fdfdfd"/><stop offset="1" stop-color="#fecbe6"/></linearGradient><radialGradient id="fluentColorCalendarCancel165" cx="0" cy="0" r="1" gradientTransform="matrix(.14285 6.79546 -6.61306 .13902 11.857 12.704)" gradientUnits="userSpaceOnUse"><stop offset=".497" stop-color="#4a43cb"/><stop offset="1" stop-color="#4a43cb" stop-opacity="0"/></radialGradient></defs></g></svg></button>
+              <button type="button" class="btn btn-success"  data-bs-dismiss="modal" onclick="actualizarEquipo()">Actualizar <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 2048 2048"><path fill="currentColor" d="M640 384h1408v1152H640zm1280 1024V512H768v896zM128 1024V896h384v128zM0 768V640h512v128zm256 512v-128h256v128zm1536-640v128H896V640zm-384 640V896h384v384zm128-256v128h128v-128zm-256 128v128H896v-128zm0-256v128H896V896z"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/sweetalert2@11.js"></script>
+    <script src="js/jugadores.js"></script>
+</body>
+</html>
