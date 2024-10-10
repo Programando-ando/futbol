@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2024 a las 05:21:29
+-- Tiempo de generación: 10-10-2024 a las 03:06:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -39,17 +39,18 @@ CREATE TABLE `equipo` (
 --
 
 INSERT INTO `equipo` (`id_e`, `nombre`, `cantidad`, `logotipo`) VALUES
-(1, 'America', 11, 'img_profile/img_1728089243.png'),
+(1, 'America', 16, 'img_profile/img_1728089243.png'),
 (2, 'Cuz Azul', 11, 'img_profile/img_1728089351.png'),
 (3, 'Chivas', 11, 'img_profile/img_1728089834.png'),
 (4, 'Pumas', 11, 'img_profile/img_1728089886.png'),
 (5, 'Monterrey', 11, 'img_profile/img_1728090073.png'),
-(6, 'Cecy', 14, 'img_profile/img_1728090175.png'),
+(6, 'Cecy', 14, 'img_profile/img_1728522128.webp'),
 (8, 'HAHAHA', 14, 'img_profile/img_1728090553.png'),
-(9, 'USA', 14, 'img_profile/img_1728090577.png'),
+(9, 'USA', 14, 'img_profile/img_1728522211.jpg'),
 (10, 'Morat', 14, 'img_profile/img_1728090589.png'),
-(15, 'jujujuj', 11, 'img_profile/img_1728146025.webp'),
-(17, 'Ya es mañana', 14, 'img_profile/img_1728347523.webp');
+(15, 'jujujuj', 11, 'img_profile/img_1728522138.jpeg'),
+(17, 'Ya es mañana', 14, 'img_profile/img_1728347523.webp'),
+(18, 'CECYRANCH', 20, 'img_profile/img_1728522167.jpeg');
 
 -- --------------------------------------------------------
 
@@ -71,10 +72,10 @@ CREATE TABLE `jugador` (
 --
 
 INSERT INTO `jugador` (`id_j`, `nombre`, `edad`, `pais`, `foto`, `id_e`) VALUES
-(1, 'Carlos', 16, 'Mexico', '', 10),
-(2, 'Juan', 17, 'Chile', '', 1),
-(3, 'Antonio', 20, 'Mexico', 'jugador/D_NQ_NP_744995-MLM75311255238_032024-O.webp', 3),
-(4, 'Jesus', 17, 'Mexico', 'jugador/icp.jpg', 1);
+(17, 'Isaza', 30, 'Colombia', 'images (4).jpeg', 10),
+(18, 'Juan', 20, 'Chile', 'images (3).jpeg', 10),
+(19, 'Jesus Perez', 17, 'Argentinaaaaaaa', 'images (2).jpeg', 1),
+(20, 'Carlos', 17, 'Mexico', 'M-MockUpADQAViniloStandard.webp', 10);
 
 --
 -- Índices para tablas volcadas
@@ -101,13 +102,13 @@ ALTER TABLE `jugador`
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_e` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_e` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `jugador`
 --
 ALTER TABLE `jugador`
-  MODIFY `id_j` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_j` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas

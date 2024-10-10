@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUIPO</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        #contenedor{
+            width: 650px;
+            height: 310px;
+            border: 2px solid black;
+            box-shadow: 2px 0px 4px black;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="text-center">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">LIGA DE FUTBOL</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="crudequipo.html">Equipo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav><br><br>
+
+      <div class="container-fluid" id="contenedor">
+        <label for="">Nombre equipo</label>
+        <input type="text" placeholder="Nombre del equipo" class="form-control w-25 m-auto" id="nombre"><br>
+        <label for="">Cantidad de jugadores</label>
+        <input type="text" placeholder="Cantidad de jugadores" class="form-control w-25 m-auto" id="cantidad"><br>
+        <label for="">Logotipo</label>
+        <input type="file" placeholder="Logotipo" class="form-control w-25 m-auto" id="logo"><br>
+        <button class="btn btn-primary" onclick="registrarE()">Registrar</button>
+      </div>
+</body>
+</html>

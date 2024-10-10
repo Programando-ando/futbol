@@ -113,7 +113,7 @@ const actualizarEquipo = async () => {
     var id = document.querySelector("#id").value;
     var nombre = document.querySelector("#enombre").value;
     var cantidad = document.querySelector("#ecantidad").value;
-    var logotipo = document.querySelector("#elogo").value;
+    var logotipoInput = document.querySelector("#elogo"); // Campo de tipo file
 
     if (nombre.trim() === "" || cantidad.trim() === "") {
         Swal.fire({ title: "ERROR", text: "Tienes campos vacíos", icon: "error" });
@@ -124,7 +124,12 @@ const actualizarEquipo = async () => {
     datos.append("id", id);
     datos.append("nombre", nombre);
     datos.append("cantidad", cantidad);
-    datos.append("logotipo", logotipo);
+    
+    // Si se seleccionó un archivo de logotipo, lo añadimos al FormData
+    if (logotipoInput.files.length > 0) {
+        datos.append("logotipo", logotipoInput.files[0]); // Añadir el archivo seleccionado
+    }
+
     datos.append("action", "update");
 
     let respuesta = await fetch("php/crud.php", { method: 'POST', body: datos });
@@ -132,10 +137,12 @@ const actualizarEquipo = async () => {
 
     if (json.success === true) {
         Swal.fire({ title: "¡ACTUALIZACIÓN EXITOSA!", text: json.mensaje, icon: "success" });
+        document.getElementById("elogo").value = "";
     } else {
         Swal.fire({ title: "ERROR", text: json.mensaje, icon: "error" });
     }
-    cargarEquipo();
+
+    cargarEquipo(); // Actualiza la lista de equipos
 };
 
 
